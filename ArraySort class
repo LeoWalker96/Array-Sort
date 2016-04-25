@@ -1,0 +1,103 @@
+# Array-Sort
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+
+public class ArraySort implements ActionListener {
+	private JFrame frame;
+	private JPanel panel;
+	private JLabel label;
+	private JLabel output;
+	private JTextField textfield1;
+	private JTextField textfield2;
+	private JTextField textfield3;
+	private JTextField textfield4;
+	private JTextField textfield5;
+	private JTextField textfield6;
+	private JTextField textfield7;
+	private JTextField textfield8;
+	private JTextField textfield9;
+	private JTextField textfield10;
+	private JButton button;
+	
+	public ArraySort() {
+		frame = new JFrame("Sort the numbers");
+		frame.setVisible(true);
+		frame.setSize(520, 100);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		panel = new JPanel();
+		panel.setBackground(Color.CYAN);
+		
+		label = new JLabel();
+		label.setText("Enter Number");
+		output = new JLabel();
+		output.setText("---------");
+		
+		textfield1 = new JTextField(5);
+		textfield2 = new JTextField(5);
+		textfield3 = new JTextField(5);
+		textfield4 = new JTextField(5);
+		textfield5 = new JTextField(5);
+		textfield6 = new JTextField(5);
+		textfield7 = new JTextField(5);
+		textfield8 = new JTextField(5);
+		textfield9 = new JTextField(5);
+		textfield10 = new JTextField(5);
+		
+		button = new JButton("Sort");
+		button.addActionListener(this);
+		
+		panel.add(label);
+		panel.add(textfield1);
+		panel.add(textfield2);
+		panel.add(textfield3);
+		panel.add(textfield4);
+		panel.add(textfield5);
+		panel.add(textfield6);
+		panel.add(textfield7);
+		panel.add(textfield8);
+		panel.add(textfield9);
+		panel.add(textfield10);
+		panel.add(button);
+		panel.add(output);
+		
+		frame.add(panel);
+	}
+	
+	public void actionPerformed(ActionEvent e) {
+		double num1 = Double.parseDouble(textfield1.getText());
+		double num2 = Double.parseDouble(textfield2.getText());
+		double num3 = Double.parseDouble(textfield3.getText());
+		double num4 = Double.parseDouble(textfield4.getText());
+		double num5 = Double.parseDouble(textfield5.getText());
+		double num6 = Double.parseDouble(textfield6.getText());
+		double num7 = Double.parseDouble(textfield7.getText());
+		double num8 = Double.parseDouble(textfield8.getText());
+		double num9 = Double.parseDouble(textfield9.getText());
+		double num10 = Double.parseDouble(textfield10.getText());
+		double number[] = {num1, num2, num3, num4, num5, num6, num7, num8, num9, num10};
+		
+		double minNum;
+		boolean fixed = false;
+		while(fixed==false) {
+			fixed=true;
+			for(int i=0; i<number.length-1; i++) {
+				if(number[i] > number[i+1]) {
+					minNum = number[i+1];
+					number[i+1] = number[i];
+					number[i] = minNum;
+					fixed=false;
+				}
+			}
+		}
+		for(int i=0; i<number.length; i++) {
+			System.out.println(number[i]);		
+		}	
+	}
+}
